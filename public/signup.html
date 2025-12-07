@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sign up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Jua&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../src/css/signup.css" />
+  </head>
+  <body>
+    <!-- ✅ 모달 제거됨 -->
+
+    <div class="app-background">
+      <!-- 상단 바 -->
+      <header class="top-bar">
+        <div class="top-bar-left">signup</div>
+        <div class="top-bar-center">TALK & CONNECT</div>
+        <div class="top-bar-right"></div>
+      </header>
+
+      <main class="signup-page">
+        <section class="signup-section">
+          <div class="signup-card" id="signup-card">
+            <!-- 카드 왼쪽 상단 화살표 -->
+            <button class="card-back-button" id="card-back-button">
+              <svg class="back-icon" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M15 18l-6-6 6-6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+
+            <!-- 상단 제목 -->
+            <div class="signup-title">Sign Up</div>
+
+            <!-- 프로필 이미지 업로드 영역 -->
+            <div class="profile-upload" id="profile-upload">
+              <label for="profile-image-input" class="profile-circle">
+                <img
+                  id="profile-preview"
+                  class="profile-image hidden"
+                  alt="profile preview"
+                />
+                <span id="profile-placeholder" class="profile-placeholder"
+                  >+</span
+                >
+              </label>
+              <input
+                type="file"
+                id="profile-image-input"
+                accept="image/*"
+                class="profile-input-hidden"
+              />
+              <p class="profile-helper" id="profile-helper">
+                프로필 사진을 추가해주세요.
+              </p>
+            </div>
+
+            <!-- ✅ form 태그 제거, div로 변경 -->
+            <div>
+              <!-- 이메일 -->
+              <div class="form-group" id="email-group">
+                <label for="email">이메일</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="이메일을 입력해주세요"
+                  autocomplete="email"
+                />
+                <p class="helper-text" id="email-helper"></p>
+              </div>
+
+              <!-- 비밀번호 -->
+              <div class="form-group" id="password-group">
+                <label for="password">비밀번호</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="비밀번호를 입력해주세요"
+                  autocomplete="new-password"
+                />
+                <p class="helper-text" id="password-helper"></p>
+              </div>
+
+              <!-- 비밀번호 확인 -->
+              <div class="form-group" id="password-confirm-group">
+                <label for="password-confirm">비밀번호 확인</label>
+                <input
+                  type="password"
+                  id="password-confirm"
+                  name="password-confirm"
+                  placeholder="비밀번호를 다시 입력해주세요"
+                  autocomplete="new-password"
+                />
+                <p class="helper-text" id="password-confirm-helper"></p>
+              </div>
+
+              <!-- 닉네임 -->
+              <div class="form-group" id="nickname-group">
+                <label for="nickname">닉네임</label>
+                <input
+                  type="text"
+                  id="nickname"
+                  name="nickname"
+                  placeholder="닉네임을 입력해주세요"
+                  autocomplete="nickname"
+                />
+                <p class="helper-text" id="nickname-helper"></p>
+              </div>
+
+              <!-- 서버 전체 에러 메시지 -->
+              <p class="form-error" id="form-error"></p>
+
+              <!-- 버튼 영역 -->
+              <div class="button-row">
+                <!-- ✅ type="submit" → type="button" 변경 -->
+                <button
+                  type="button"
+                  id="signup-button"
+                  class="btn btn-primary"
+                  disabled
+                >
+                  회원가입
+                </button>
+              </div>
+
+              <div class="button-row secondary">
+                <button
+                  type="button"
+                  id="go-login-button"
+                  class="btn btn-secondary"
+                >
+                  로그인 하러가기
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ✅ JS는 맨 마지막에 딱 한 번만 -->
+    <script src="../src/js/signup.js"></script>
+  </body>
+</html>

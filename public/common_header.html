@@ -1,0 +1,46 @@
+<header class="top-bar">
+  <!-- 왼쪽: 뒤로가기 버튼 (없어도 되지만 있으면 공통 JS가 동작) -->
+  <button
+    type="button"
+    class="back-icon-button"
+    id="back-button"
+    aria-label="뒤로가기"
+  >
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      class="back-icon"
+      aria-hidden="true"
+    >
+      <path
+        d="M15 18l-6-6 6-6"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="none"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+
+  <!-- 가운데: 서비스 이름 (클릭 시 게시글 목록으로 이동) -->
+  <div class="top-bar-center">TALK & CONNECT</div>
+
+  <!-- 오른쪽: 프로필 + 드롭다운 메뉴 -->
+  <div class="top-bar-right">
+    <div class="profile-wrapper">
+      <div class="profile-circle" id="profile-circle">U</div>
+
+      <!-- 공통 프로필 드롭다운 메뉴 -->
+      <div class="profile-menu" id="profile-menu">
+        <div class="profile-menu__item" data-action="edit-profile">
+          회원정보수정
+        </div>
+        <div class="profile-menu__item" data-action="edit-password">
+          비밀번호변경
+        </div>
+        <div class="profile-menu__item" data-action="logout">로그아웃</div>
+      </div>
+    </div>
+  </div>
+</header>

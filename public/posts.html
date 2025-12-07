@@ -1,0 +1,79 @@
+<!-- frontend/public/posts.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Posts - TALK & CONNECT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 폰트 (로그인/회원가입과 동일 계열) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Jua&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../src/css/posts.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="top-bar-center">TALK & CONNECT</div>
+      <div class="top-bar-right">
+        <div class="profile-wrapper">
+          <div class="profile-circle" id="profile-circle"></div>
+
+          <!-- 프로필 드롭다운 메뉴 -->
+          <div class="profile-menu" id="profile-menu">
+            <div class="profile-menu__item" data-action="edit-profile">
+              회원정보수정
+            </div>
+            <div class="profile-menu__item" data-action="change-password">
+              비밀번호수정
+            </div>
+            <div class="profile-menu__item" data-action="logout">로그아웃</div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="app-background">
+      <!-- 상단 바 -->
+
+      <!-- 메인 영역 -->
+      <main class="posts-page">
+        <section class="posts-section">
+          <div class="posts-container">
+            <!-- 인사 / 버튼 -->
+            <div class="posts-header">
+              <div class="welcome-text">
+                <p class="hello-text">안녕하세요,</p>
+                <p class="board-text">
+                  TALK & CONNECT <span>게시판</span> 입니다.
+                </p>
+              </div>
+              <button id="write-button" class="write-button">
+                게시글 작성
+              </button>
+            </div>
+
+            <!-- 게시글 리스트 -->
+            <div id="posts-list" class="posts-list"></div>
+
+            <!-- 로딩 표시 -->
+            <div id="loading" class="loading hidden">
+              게시글을 불러오는 중...
+            </div>
+
+            <!-- 더 이상 게시글이 없을 때 -->
+            <div id="end-message" class="end-message hidden">
+              더 이상 게시글이 없습니다.
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../src/js/common_header.js"></script>
+    <script src="../src/js/posts.js"></script>
+  </body>
+</html>

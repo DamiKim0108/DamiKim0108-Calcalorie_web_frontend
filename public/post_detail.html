@@ -1,0 +1,206 @@
+<!-- frontend/public/post_detail.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>게시글 상세 - TALK & CONNECT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Jua&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../src/css/post_detail.css" />
+  </head>
+
+  <body>
+    <div class="app-background">
+      <!-- 🔥 posts.html과 동일한 헤더 / back-button 제거됨 -->
+      <header class="top-bar">
+        <div class="top-bar-center">TALK & CONNECT</div>
+        <div class="top-bar-right">
+          <div class="profile-wrapper">
+            <div class="profile-circle" id="profile-circle"></div>
+
+            <!-- 프로필 드롭다운 메뉴 -->
+            <div class="profile-menu" id="profile-menu">
+              <div class="profile-menu__item" data-action="edit-profile">
+                회원정보수정
+              </div>
+              <div class="profile-menu__item" data-action="change-password">
+                비밀번호수정
+              </div>
+              <div class="profile-menu__item" data-action="logout">
+                로그아웃
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- 메인 콘텐츠 -->
+      <main class="post-page">
+        <section class="post-section">
+          <div class="post-container" id="post-container">
+            <!-- 게시글 상단 영역 -->
+            <header class="post-header">
+              <h1 class="post-title" id="post-title">제목 로딩중...</h1>
+
+              <div class="post-header-meta">
+                <div class="post-author">
+                  <div class="post-author-avatar"></div>
+                  <div>
+                    <div id="post-author-name" class="post-author-name">
+                      작성자
+                    </div>
+                    <div id="post-created-at" class="post-created-at">
+                      2025-01-01 00:00:00
+                    </div>
+                  </div>
+                </div>
+
+                <div class="post-actions">
+                  <button
+                    type="button"
+                    class="post-action-button"
+                    id="edit-post-button"
+                  >
+                    수정
+                  </button>
+                  <button
+                    type="button"
+                    class="post-action-button danger"
+                    id="delete-post-button"
+                  >
+                    삭제
+                  </button>
+                </div>
+              </div>
+            </header>
+
+            <!-- 이미지 -->
+            <div class="post-image-wrapper" id="post-image-wrapper">
+              <img
+                id="post-image"
+                class="post-image"
+                src=""
+                alt="게시글 이미지"
+              />
+            </div>
+
+            <!-- 본문 -->
+            <article class="post-content" id="post-content">
+              게시글 내용을 불러오는 중입니다...
+            </article>
+
+            <!-- 좋아요 / 조회수 / 댓글 -->
+            <div class="post-stats-row">
+              <button
+                type="button"
+                class="stat-button like-button"
+                id="like-button"
+              >
+                <span>좋아요</span>
+                <strong id="like-count">0</strong>
+              </button>
+              <div class="stat-box">
+                <span>조회수</span>
+                <strong id="view-count">0</strong>
+              </div>
+              <div class="stat-box">
+                <span>댓글</span>
+                <strong id="comment-count">0</strong>
+              </div>
+            </div>
+
+            <!-- 댓글 입력 -->
+            <section class="comment-input-section">
+              <label for="comment-input" class="comment-label">
+                댓글 <span class="required">*</span>
+              </label>
+              <textarea
+                id="comment-input"
+                class="comment-input"
+                placeholder="댓글을 입력해주세요."
+                rows="3"
+              ></textarea>
+
+              <div class="comment-actions-row">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="comment-submit-button"
+                  disabled
+                >
+                  댓글 등록
+                </button>
+              </div>
+            </section>
+
+            <!-- 댓글 리스트 -->
+            <section class="comments-section">
+              <h2 class="comments-title">댓글 목록</h2>
+              <div id="comments-list" class="comments-list"></div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- 게시글 삭제 모달 -->
+    <div class="modal-backdrop hidden" id="post-delete-modal-backdrop">
+      <div class="modal">
+        <h3 class="modal-title">게시글을 삭제하시겠습니까?</h3>
+        <p class="modal-text">삭제한 내용은 복구할 수 없습니다.</p>
+        <div class="modal-buttons">
+          <button
+            type="button"
+            class="btn modal-cancel"
+            id="post-delete-cancel"
+          >
+            취소
+          </button>
+          <button
+            type="button"
+            class="btn modal-confirm"
+            id="post-delete-confirm"
+          >
+            확인
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 댓글 삭제 모달 -->
+    <div class="modal-backdrop hidden" id="comment-delete-modal-backdrop">
+      <div class="modal">
+        <h3 class="modal-title">댓글을 삭제하시겠습니까?</h3>
+        <p class="modal-text">삭제한 내용은 복구할 수 없습니다.</p>
+        <div class="modal-buttons">
+          <button
+            type="button"
+            class="btn modal-cancel"
+            id="comment-delete-cancel"
+          >
+            취소
+          </button>
+          <button
+            type="button"
+            class="btn modal-confirm"
+            id="comment-delete-confirm"
+          >
+            확인
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="../src/js/post_detail.js"></script>
+    <script src="../src/js/common_header.js"></script>
+  </body>
+</html>

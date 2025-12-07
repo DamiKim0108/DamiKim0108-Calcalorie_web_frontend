@@ -1,0 +1,301 @@
+/* frontend/src/css/post_create.css */
+
+/* 공통 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f5f5f7;
+}
+
+.app-background {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f7;
+}
+
+/* 상단 바 (posts / post_detail 과 동일 계열) */
+.top-bar {
+  height: 56px;
+  background: #e8e8ea;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid #dcdcdc;
+  font-family: "Gabarito", sans-serif;
+}
+
+/* 가운데 로고 텍스트 */
+.top-bar-center {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 오른쪽 프로필 영역 */
+.top-bar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* 프로필 + 드롭다운 래퍼 */
+.profile-wrapper {
+  position: relative;
+}
+
+/* 프로필 동그라미 */
+.profile-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #d1d1d6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+  cursor: pointer;
+}
+
+/* 프로필 드롭다운 메뉴 */
+.profile-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 140px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  padding: 6px 0;
+  display: none;
+  z-index: 1000;
+}
+
+/* open 클래스 붙었을 때 표시 */
+.profile-menu.open {
+  display: block;
+}
+
+/* 드롭다운 항목 */
+.profile-menu__item {
+  padding: 8px 14px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.profile-menu__item:hover {
+  background: #f3f3f7;
+}
+
+/* (이전 버전에서 사용하던 back-icon 버튼은
+   post_create.html에 없으면 그냥 둬도 영향 없음) */
+.back-icon-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #444;
+  margin-right: 12px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.back-icon-button:hover {
+  background: #ffffff;
+  color: #7f6aee;
+}
+
+/* 메인 영역 */
+.post-create-page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.post-create-section {
+  width: 100%;
+  padding: 40px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.post-create-container {
+  width: 100%;
+  max-width: 720px;
+}
+
+/* 제목 */
+.page-title {
+  font-family: "Jua", sans-serif;
+  text-align: center;
+  margin: 0 0 32px;
+  font-size: 24px;
+}
+
+/* 폼 */
+.post-form {
+  background: transparent;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.required {
+  color: #fc9898;
+  margin-left: 2px;
+}
+
+/* 인풋/텍스트에어리어 */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #e1e1e1;
+  background-color: #fafafa;
+  font-size: 14px;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #b7b7b7;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #7f6aee;
+  box-shadow: 0 0 0 2px rgba(127, 106, 238, 0.15);
+  background-color: #ffffff;
+}
+
+.form-group.error .form-input,
+.form-group.error .form-textarea {
+  border-color: #fc9898;
+}
+
+/* 제목 helper + 글자 수 카운터 */
+.helper-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.char-counter {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #888;
+}
+
+#title-group {
+  position: relative;
+}
+
+/* 글자수 카운터 우하단 고정 */
+#title-counter {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  font-size: 12px;
+  color: #999;
+  pointer-events: none; /* 클릭 방해하지 않도록 */
+}
+
+/* 제목 input 내부 여백 확보 (카운터 겹치지 않게) */
+#title {
+  padding-right: 50px; /* 오른쪽 여유 공간 확보 */
+}
+
+/* 파일 업로드 */
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-caption {
+  font-size: 13px;
+  color: #777;
+}
+
+/* 전체 폼 에러 */
+.form-error {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #fc9898;
+  min-height: 16px;
+}
+
+/* 버튼 */
+.button-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  width: 100%;
+  max-width: 320px;
+  height: 48px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* 기본: 비활성 ACA0EB */
+.btn-primary {
+  background: #aca0eb;
+  color: #ffffff;
+}
+
+/* 유효성 검사 통과 시 7F6AEE */
+.btn-primary.enabled {
+  background: #7f6aee;
+}
+
+.btn-primary:disabled {
+  cursor: default;
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .post-create-container {
+    max-width: 100%;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+}
+
+/* 제목/내용 아래 helper는 화면에 숨김 (JS용 DOM만 유지) */
+.field-helper {
+  display: none;
+}

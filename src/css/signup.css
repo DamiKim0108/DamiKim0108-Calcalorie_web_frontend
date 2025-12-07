@@ -1,0 +1,264 @@
+/* 공통 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f5f5f7;
+}
+
+/* 전체 배경 */
+.app-background {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f7;
+}
+
+/* 상단 바 */
+.top-bar {
+  height: 56px;
+  background: #e8e8ea;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1px solid #dcdcdc;
+  font-family: "Gabarito", sans-serif;
+}
+
+.top-bar-left {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.top-bar-center {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* 가운데 영역 */
+.signup-page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-section {
+  width: 100%;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 카드 */
+.signup-card {
+  width: 420px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  padding: 36px 40px 32px;
+  text-align: center;
+  border: 2px solid transparent;
+  font-family: "Jua", sans-serif;
+  position: relative;
+}
+
+.signup-card.has-error {
+  border-color: #ff7c7c;
+}
+
+/* 회원가입 카드 내부 좌측 상단 뒤로가기 버튼 */
+.card-back-button {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: #ffffff;
+  color: #404040; /* 기본 아이콘 색 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+/* Hover 시 색상 변경 */
+.card-back-button:hover {
+  color: #7f6aee; /* 아이콘 색 변경 */
+  background: #f3ecff; /* 버튼 배경색도 변경 */
+}
+
+/* 제목 (회원가입) */
+.signup-title {
+  font-size: 35px;
+  font-weight: 520;
+  margin-bottom: 24px;
+}
+
+/* 프로필 이미지 업로드 */
+.profile-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.profile-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #f3f3f5;
+  border: 1px dashed #ccccd3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-placeholder {
+  font-size: 40px;
+  color: #b3b3c0;
+  line-height: 1;
+}
+
+.profile-input-hidden {
+  display: none;
+}
+
+/* 프로필 이미지 에러 상태 */
+.profile-upload.error .profile-circle {
+  border-color: #ff7c7c;
+}
+
+.profile-helper {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #fc9898; /* helperText도 빨간색으로 */
+  font-weight: 20;
+  font-family: "Jua", sans-serif;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 폼 요소 */
+.form-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.form-group label {
+  display: none; /* 디자인 상 placeholder만 사용 */
+}
+
+.form-group input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid #e1e1e1;
+  background-color: #fafafa;
+  font-size: 14px;
+}
+
+.form-group input::placeholder {
+  color: #b7b7b7;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #7f6aee;
+  box-shadow: 0 0 0 2px rgba(127, 106, 238, 0.15);
+  background-color: #ffffff;
+}
+
+.form-group.error input {
+  border-color: #ff7c7c;
+}
+
+/* 도움말 & 에러 텍스트 */
+.helper-text {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #ff7c7c;
+  min-height: 16px;
+}
+
+.form-error {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #ff7c7c;
+  min-height: 16px;
+}
+
+/* 버튼들 */
+.button-row {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.button-row.secondary {
+  margin-top: 8px;
+}
+
+.btn {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* 기본: 비활성 색 */
+.btn-primary {
+  background: #aca0eb;
+  color: #ffffff;
+}
+
+/* 유효성 통과 시 */
+.btn-primary.enabled {
+  background: #7f6aee;
+}
+
+.btn-primary:disabled {
+  cursor: default;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: #7f6aee;
+  border: 1px solid #7f6aee;
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+  .signup-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 28px 20px 24px;
+  }
+}
+
+/* ===== 모달 관련 CSS 완전 제거 ===== */
+/* .modal, .modal-content, .modal-text, .modal-ok-button 등 모두 삭제됨 */

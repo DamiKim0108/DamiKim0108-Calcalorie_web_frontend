@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원정보수정 - 아무 말 대잔치</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Jua&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- posts.css 재사용 + edit_profile.css 추가 -->
+    <link rel="stylesheet" href="../src/css/posts.css" />
+    <link rel="stylesheet" href="../src/css/edit_profile.css" />
+  </head>
+  <body>
+    <div class="app-background">
+      <!-- 상단바 (posts.html과 동일 구조) -->
+      <header class="top-bar">
+        <div class="top-bar-center">TALK & CONNECT</div>
+        <div class="top-bar-right">
+          <div class="profile-wrapper">
+            <div class="profile-circle" id="profile-circle"></div>
+
+            <div class="profile-menu" id="profile-menu">
+              <div class="profile-menu__item" data-action="edit-profile">
+                회원정보수정
+              </div>
+              <div class="profile-menu__item" data-action="change-password">
+                비밀번호수정
+              </div>
+              <div class="profile-menu__item" data-action="logout">
+                로그아웃
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- 메인 -->
+      <main class="edit-page">
+        <section class="edit-section">
+          <div class="edit-card">
+            <h1 class="edit-title">회원정보수정</h1>
+
+            <!-- 프로필 사진 영역 -->
+            <div class="edit-profile-photo" id="profile-upload">
+              <label for="profile-image-input" class="edit-profile-circle">
+                <img
+                  id="profile-preview"
+                  class="profile-image hidden"
+                  alt="profile preview"
+                />
+                <span id="profile-initial" class="edit-profile-initial">U</span>
+                <span class="edit-profile-change">변경</span>
+              </label>
+              <input
+                type="file"
+                id="profile-image-input"
+                accept="image/*"
+                class="hidden"
+              />
+            </div>
+
+            <!-- 회원정보 수정 폼 -->
+            <form id="edit-form" class="edit-form" novalidate>
+              <div class="field">
+                <label class="field-label" for="email">이메일</label>
+                <input type="email" id="email" class="field-input" disabled />
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="nickname">닉네임</label>
+                <input
+                  type="text"
+                  id="nickname"
+                  class="field-input"
+                  maxlength="50"
+                />
+                <!-- helper text 영역 -->
+                <p id="nickname-helper" class="field-helper"></p>
+              </div>
+
+              <button type="button" id="update-button" class="primary-button">
+                수정하기
+              </button>
+            </form>
+
+            <button type="button" id="delete-button" class="danger-button">
+              회원 탈퇴
+            </button>
+            <!-- ✅ 회원탈퇴 버튼 바로 아래에 토스트 -->
+            <div id="toast" class="toast hidden">수정완료</div>
+          </div>
+        </section>
+      </main>
+
+      <!-- 수정 완료 토스트 -->
+      <div id="toast" class="toast hidden">수정완료</div>
+
+      <!-- 회원 탈퇴 모달 -->
+      <div id="delete-modal" class="modal hidden">
+        <div class="modal-dialog">
+          <p class="modal-title">회원탈퇴 하시겠습니까?</p>
+          <p class="modal-desc">작성된 게시글과 댓글은 삭제됩니다.</p>
+          <div class="modal-buttons">
+            <button
+              type="button"
+              id="delete-cancel"
+              class="modal-button modal-button--cancel"
+            >
+              취소
+            </button>
+            <button
+              type="button"
+              id="delete-confirm"
+              class="modal-button modal-button--confirm"
+            >
+              확인
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../src/js/common_header.js"></script>
+    <script src="../src/js/edit_profile.js"></script>
+  </body>
+</html>

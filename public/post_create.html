@@ -1,0 +1,119 @@
+<!-- frontend/public/post_create.html -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>게시글 작성 - TALK&CONNECT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 로그인/회원가입에서 사용한 폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Jua&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../src/css/post_create.css" />
+  </head>
+  <body>
+    <div class="app-background">
+      <!-- 상단 바 -->
+      <header class="top-bar">
+        <div class="top-bar-center">TALK & CONNECT</div>
+        <div class="top-bar-right">
+          <div class="profile-wrapper">
+            <div class="profile-circle" id="profile-circle"></div>
+
+            <!-- 프로필 드롭다운 메뉴 -->
+            <div class="profile-menu" id="profile-menu">
+              <div class="profile-menu__item" data-action="edit-profile">
+                회원정보수정
+              </div>
+              <div class="profile-menu__item" data-action="change-password">
+                비밀번호수정
+              </div>
+              <div class="profile-menu__item" data-action="logout">
+                로그아웃
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- 메인 영역 -->
+      <main class="post-create-page">
+        <section class="post-create-section">
+          <div class="post-create-container">
+            <h1 class="page-title">게시글 작성</h1>
+
+            <form id="post-form" class="post-form" novalidate>
+              <!-- 제목 -->
+              <div class="form-group" id="title-group">
+                <label for="title" class="form-label">
+                  제목<span cldass="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  class="form-input"
+                  placeholder="제목을 입력해주세요. (최대 26글자)"
+                  maxlength="26"
+                />
+                <p class="char-counter" id="title-counter">0 / 26</p>
+
+                <p class="helper-text field-helper" id="title-helper"></p>
+              </div>
+
+              <!-- 내용 -->
+              <div class="form-group" id="content-group">
+                <label for="content" class="form-label">
+                  내용<span class="required">*</span>
+                </label>
+                <textarea
+                  id="content"
+                  name="content"
+                  class="form-textarea"
+                  placeholder="내용을 입력해주세요."
+                  rows="7"
+                ></textarea>
+                <!-- JS에서 쓰는 helper: 화면에는 숨김 -->
+                <p class="helper-text field-helper" id="content-helper"></p>
+              </div>
+
+              <!-- 이미지 업로드 -->
+              <div class="form-group" id="image-group">
+                <label for="image" class="form-label">이미지</label>
+                <div class="file-row">
+                  <input type="file" id="image" name="image" accept="image/*" />
+                  <span class="file-caption" id="file-caption">
+                    파일을 선택해주세요.
+                  </span>
+                </div>
+                <p class="helper-text" id="image-helper"></p>
+              </div>
+
+              <!-- 전체 폼 에러(helper text) -->
+              <p class="form-error" id="form-error"></p>
+
+              <!-- 제출 버튼 -->
+              <div class="button-row">
+                <button
+                  type="submit"
+                  id="submit-button"
+                  class="btn btn-primary"
+                >
+                  완료
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../src/js/post_create.js"></script>
+    <script src="../src/js/common_header.js"></script>
+  </body>
+</html>
